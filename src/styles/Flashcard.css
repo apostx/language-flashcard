@@ -1,0 +1,151 @@
+.flashcard {
+  width: 400px;
+  height: 250px;
+  perspective: 1000px;
+  margin: 2rem auto;
+  cursor: pointer;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.flashcard-front {
+  background-color: #3498db;
+  color: white;
+}
+
+.flashcard-back {
+  background-color: #2ecc71;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.flashcard h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.audio-button {
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.audio-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.audio-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.flashcard-navigation {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-button {
+  padding: 0.5rem 1rem;
+  background-color: #34495e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+  background-color: #2c3e50;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-top: 0.5rem;
+  background-color: rgba(231, 76, 60, 0.1);
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* Error state styling */
+.flashcard.error .flashcard-inner {
+  background-color: #e74c3c;
+}
+
+.error-card {
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+  border-radius: 5px;
+  padding: 1rem;
+  text-align: center;
+  background-color: rgba(231, 76, 60, 0.1);
+  margin: 2rem auto;
+  max-width: 400px;
+}
+
+.no-cards {
+  color: #7f8c8d;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 400px;
+  background-color: #f9f9f9;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .flashcard {
+    height: 250px;
+    margin: 1.5rem auto 4rem;
+  }
+  
+  .flashcard h2 {
+    font-size: 1.5rem;
+  }
+  
+  .audio-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .flashcard-navigation {
+    bottom: -50px;
+  }
+}

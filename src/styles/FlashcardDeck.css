@@ -1,0 +1,91 @@
+.flashcard-deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.deck-controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+}
+
+.control-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.control-button {
+  padding: 0.6rem 1rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-button:hover {
+  background-color: #e0e0e0;
+}
+
+.control-button.active {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.deck-info {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.no-cards, .error-card {
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+.no-cards {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #7f8c8d;
+}
+
+.error-card {
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  color: #c62828;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .deck-controls {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 480px) {
+  .flashcard-deck {
+    padding: 0 1rem;
+  }
+  
+  .control-button {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}
