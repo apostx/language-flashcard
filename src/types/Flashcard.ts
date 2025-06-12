@@ -1,7 +1,9 @@
 export interface Flashcard {
   id: number;
-  germanWord: string;
-  germanSoundUrl?: string;
-  hungarianTranslation: string;
-  hungarianSoundUrl?: string;
+  sourceWord: string;
+  sourceSoundUrl?: string;
+  targetTranslation: string;
+  targetSoundUrl?: string;
+  sourceLanguage?: string;
+  targetLanguage?: string;
 }

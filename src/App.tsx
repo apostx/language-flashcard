@@ -82,10 +82,16 @@ const App: React.FC = () => {
     </>
   );
 
+  // Get languages from the first flashcard if available
+  const sourceLanguage = flashcards.length > 0 ? flashcards[0].sourceLanguage || 'Source' : 'Source';
+  const targetLanguage = flashcards.length > 0 ? flashcards[0].targetLanguage || 'Target' : 'Target';
+  
+  const headerTitle = `${sourceLanguage}-${targetLanguage} Flashcards`;
+
   return (
     <div className="app">
       <header className="app-header">
-        <h1>German-Hungarian Flashcards</h1>
+        <h1>{headerTitle}</h1>
         <p className="app-subtitle">Learn vocabulary with interactive flashcards</p>
       </header>
       
@@ -94,7 +100,7 @@ const App: React.FC = () => {
       </main>
       
       <footer className="app-footer">
-        <p>Flashcard Application for Learning German and Hungarian</p>
+        <p>Language Flashcard Application</p>
         <p className="footer-note">Tap or click a card to flip it</p>
       </footer>
     </div>

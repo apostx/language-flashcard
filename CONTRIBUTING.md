@@ -1,6 +1,6 @@
-# Contributing to the German-Hungarian Flashcard Project
+# Contributing to the Language Flashcard Project
 
-Thank you for considering contributing to this project! Here's how you can help.
+Thank you for considering contributing to this project! This application helps users learn vocabulary between any language pairs. Here's how you can help.
 
 ## AI-Assisted Project
 
@@ -28,8 +28,8 @@ Please be respectful and considerate of others when contributing to this project
 
 ```bash
 # Clone your fork
-git clone https://github.com/YOUR_USERNAME/flashcard.git
-cd flashcard
+git clone https://github.com/YOUR_USERNAME/language-flashcard.git
+cd language-flashcard
 
 # Install dependencies
 npm install

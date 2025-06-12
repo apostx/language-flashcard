@@ -14,7 +14,7 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
   const [isFlipped, setIsFlipped] = useState(false);
   const { playAudio, isPlaying, error } = useAudio();
 
-  if (!card || !card.germanWord || !card.hungarianTranslation) {
+  if (!card || !card.sourceWord || !card.targetTranslation) {
     return (
       <div className="flashcard error">
         <div className="flashcard-inner">
@@ -30,29 +30,29 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
     setIsFlipped(!isFlipped);
   };
 
-  const playGermanAudio = (e: React.MouseEvent) => {
+  const playSourceAudio = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (card.germanSoundUrl) {
-      playAudio(card.germanSoundUrl);
+    if (card.sourceSoundUrl) {
+      playAudio(card.sourceSoundUrl);
     }
   };
 
-  const playHungarianAudio = (e: React.MouseEvent) => {
+  const playTargetAudio = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (card.hungarianSoundUrl) {
-      playAudio(card.hungarianSoundUrl);
+    if (card.targetSoundUrl) {
+      playAudio(card.targetSoundUrl);
     }
   };
 
   const frontContent = reversed ? (
     <>
-      <h2>{card.hungarianTranslation}</h2>
-      {card.hungarianSoundUrl && (
+      <h2>{card.targetTranslation}</h2>
+      {card.targetSoundUrl && (
         <button 
           className="audio-button"
-          onClick={playHungarianAudio} 
+          onClick={playTargetAudio} 
           disabled={isPlaying}
-          aria-label="Play Hungarian pronunciation"
+          aria-label={`Play ${card.targetLanguage || 'target language'} pronunciation`}
         >
           🔊
         </button>
@@ -60,13 +60,13 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
     </>
   ) : (
     <>
-      <h2>{card.germanWord}</h2>
-      {card.germanSoundUrl && (
+      <h2>{card.sourceWord}</h2>
+      {card.sourceSoundUrl && (
         <button 
           className="audio-button"
-          onClick={playGermanAudio} 
+          onClick={playSourceAudio} 
           disabled={isPlaying}
-          aria-label="Play German pronunciation"
+          aria-label={`Play ${card.sourceLanguage || 'source language'} pronunciation`}
         >
           🔊
         </button>
@@ -76,13 +76,13 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
 
   const backContent = reversed ? (
     <>
-      <h2>{card.germanWord}</h2>
-      {card.germanSoundUrl && (
+      <h2>{card.sourceWord}</h2>
+      {card.sourceSoundUrl && (
         <button 
           className="audio-button"
-          onClick={playGermanAudio} 
+          onClick={playSourceAudio} 
           disabled={isPlaying}
-          aria-label="Play German pronunciation"
+          aria-label={`Play ${card.sourceLanguage || 'source language'} pronunciation`}
         >
           🔊
         </button>
@@ -90,13 +90,13 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
     </>
   ) : (
     <>
-      <h2>{card.hungarianTranslation}</h2>
-      {card.hungarianSoundUrl && (
+      <h2>{card.targetTranslation}</h2>
+      {card.targetSoundUrl && (
         <button 
           className="audio-button"
-          onClick={playHungarianAudio} 
+          onClick={playTargetAudio} 
           disabled={isPlaying}
-          aria-label="Play Hungarian pronunciation"
+          aria-label={`Play ${card.targetLanguage || 'target language'} pronunciation`}
         >
           🔊
         </button>

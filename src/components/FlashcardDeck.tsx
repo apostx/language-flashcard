@@ -12,6 +12,14 @@ const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ flashcards }) => {
   const [shuffleMode, setShuffleMode] = useState(false);
   const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
   const [reversed, setReversed] = useState(false);
+  
+  // Extract language information from the first card if available
+  const sourceLanguage = flashcards.length > 0 && flashcards[0].sourceLanguage 
+    ? flashcards[0].sourceLanguage 
+    : 'Source';
+  const targetLanguage = flashcards.length > 0 && flashcards[0].targetLanguage 
+    ? flashcards[0].targetLanguage 
+    : 'Target';
 
   // Reset card index when flashcards change
   useEffect(() => {
@@ -94,9 +102,9 @@ const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ flashcards }) => {
           <button 
             onClick={toggleLanguageDirection} 
             className={`control-button ${reversed ? 'active' : ''}`}
-            title={reversed ? "Show German → Hungarian" : "Show Hungarian → German"}
+            title={reversed ? `Show ${targetLanguage} → ${sourceLanguage}` : `Show ${sourceLanguage} → ${targetLanguage}`}
           >
-            {reversed ? '🇭🇺 → 🇩🇪' : '🇩🇪 → 🇭🇺'}
+            {reversed ? `🔄 ${targetLanguage} → ${sourceLanguage}` : `🔄 ${sourceLanguage} → ${targetLanguage}`}
           </button>
         </div>
         

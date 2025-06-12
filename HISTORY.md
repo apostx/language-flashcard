@@ -1,6 +1,6 @@
 # Project Development History
 
-This document tracks the development history of the German-Hungarian Flashcard application, including received instructions, implemented features, and encountered challenges.
+This document tracks the development history of the Language Flashcard application, including received instructions, implemented features, and encountered challenges. The project initially started as a German-Hungarian flashcard app but was later expanded to support any language pair.
 
 ## AI Development Information
 
@@ -34,6 +34,22 @@ The project was initiated with the following requirements:
   2. Column 2: URL to German pronunciation audio
   3. Column 3: Hungarian translation
   4. Column 4: URL to Hungarian pronunciation audio
+
+## Project Evolution
+
+The project later evolved to support any language pair:
+
+- Modified the application to be language-agnostic
+- Added support for detecting language names from spreadsheet headers
+- Updated UI to dynamically display language names
+- Improved documentation to reflect the generic nature of the app
+- Updated spreadsheet structure to use:
+  1. Header Row: Contains language names (e.g., "English", "Spanish")
+  2. Data Rows:
+     - Column 1: Source language word
+     - Column 2: URL to source language pronunciation audio (optional)
+     - Column 3: Target language translation
+     - Column 4: URL to target language pronunciation audio (optional)
 
 ## Successfully Implemented Features
 

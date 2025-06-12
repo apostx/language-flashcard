@@ -1,10 +1,29 @@
 # Changelog
 
-All notable changes to the German-Hungarian Flashcard project will be documented in this file.
+All notable changes to the Language Flashcard project will be documented in this file.
 
 ## Project Information
 
 This project was developed with the assistance of Claude 3.7 (developed by Anthropic) in June 2025. For more details about the AI-assisted development process, see [HISTORY.md](./HISTORY.md).
+
+## [2.0.0] - 2025-06-12
+
+### Added
+- Support for any language pair, not just German-Hungarian
+- Dynamic language detection from spreadsheet headers
+- New language-agnostic field names in the codebase
+- Enhanced documentation reflecting the application's generic nature
+
+### Changed
+- Renamed project to "language-flashcard"
+- Updated UI to dynamically show the current language pair
+- Modified language toggle button to use generic labels
+- Improved spreadsheet parsing to extract language information
+- Updated all documentation to reflect new generic features
+
+### Fixed
+- Various references to specific languages in the codebase
+- Fallback data structure to match new field names
 
 ## [1.1.0] - 2025-06-11
 

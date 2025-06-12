@@ -1,15 +1,15 @@
-# FlashCard - German-Hungarian Vocabulary Learning App
+# Language Flashcard - Vocabulary Learning App
 
-A responsive web application for learning German vocabulary with Hungarian translations, featuring audio playback for both languages.
+A responsive web application for learning vocabulary between any language pairs, featuring audio playback for both languages.
 
 ## Features
 
-- Interactive flashcards with German words and Hungarian translations
+- Interactive flashcards supporting any language pair
 - Flip animation to reveal translations
 - Audio playback for both languages (when URLs are provided)
 - Responsive design for desktop and mobile browsers
 - Shuffle mode for randomized learning
-- Language direction toggle (German→Hungarian or Hungarian→German)
+- Language direction toggle (source→target or target→source)
 - Data sourced from a public Google Spreadsheet
 - Fallback data for offline use
 
@@ -32,8 +32,8 @@ A responsive web application for learning German vocabulary with Hungarian trans
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/flashcard.git
-cd flashcard
+git clone https://github.com/apostx/language-flashcard.git
+cd language-flashcard
 
 # Install dependencies
 npm install
@@ -64,16 +64,18 @@ The compiled files will be placed in the `dist` directory.
 
 ### Advanced Features
 - Click the "🔀 Shuffle" button to randomize the order of cards
-- Click the "🇩🇪 → 🇭🇺" button to switch between showing German words first or Hungarian words first
+- Click the "🔄 Source → Target" button to switch language direction
 
 ## Data Structure
 
 The application fetches data from a Google Spreadsheet with the following structure:
 
-1. Column 1: German word (required)
-2. Column 2: URL to German pronunciation audio (optional)
-3. Column 3: Hungarian translation (required)
-4. Column 4: URL to Hungarian pronunciation audio (optional)
+1. **Header Row**: First row should contain language names (e.g., "English", "Spanish")
+2. **Content Rows**:
+   - Column 1: Source language word (required)
+   - Column 2: URL to source language pronunciation audio (optional)
+   - Column 3: Target language translation (required)
+   - Column 4: URL to target language pronunciation audio (optional)
 
 ### Custom Data Source
 

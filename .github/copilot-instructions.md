@@ -1,8 +1,8 @@
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
-## FlashCard Application
+## Language Flashcard Application
 
-This is a TypeScript + React application for German-Hungarian vocabulary flashcards.
+This is a TypeScript + React application for vocabulary flashcards that supports any language pair.
 
 ### Project Structure
 
@@ -15,10 +15,12 @@ This is a TypeScript + React application for German-Hungarian vocabulary flashca
 ### Data Source
 
 The application fetches data from a Google Spreadsheet with the following structure:
-1. Column 1: German word
-2. Column 2: URL to German pronunciation audio
-3. Column 3: Hungarian translation
-4. Column 4: URL to Hungarian pronunciation audio
+1. Header Row: Contains language names (e.g., "English", "Spanish")
+2. Data Rows:
+   - Column 1: Source language word
+   - Column 2: URL to source language pronunciation audio (optional)
+   - Column 3: Target language translation
+   - Column 4: URL to target language pronunciation audio (optional)
 
 ### Key Features
 
