@@ -1,52 +1,72 @@
 [
   {
     "id": 1,
-    "germanWord": "machen",
-    "hungarianTranslation": "csinálni"
+    "sourceWord": "machen",
+    "targetTranslation": "csinálni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 2,
-    "germanWord": "spielen",
-    "hungarianTranslation": "játszani"
+    "sourceWord": "spielen",
+    "targetTranslation": "játszani",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 3,
-    "germanWord": "lesen",
-    "hungarianTranslation": "olvasni"
+    "sourceWord": "lesen",
+    "targetTranslation": "olvasni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 4,
-    "germanWord": "schreiben",
-    "hungarianTranslation": "írni"
+    "sourceWord": "schreiben",
+    "targetTranslation": "írni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 5,
-    "germanWord": "gehen",
-    "hungarianTranslation": "menni"
+    "sourceWord": "gehen",
+    "targetTranslation": "menni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 6,
-    "germanWord": "sprechen",
-    "hungarianTranslation": "beszélni"
+    "sourceWord": "sprechen",
+    "targetTranslation": "beszélni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 7,
-    "germanWord": "essen",
-    "hungarianTranslation": "enni"
+    "sourceWord": "essen",
+    "targetTranslation": "enni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 8,
-    "germanWord": "trinken",
-    "hungarianTranslation": "inni"
+    "sourceWord": "trinken",
+    "targetTranslation": "inni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 9,
-    "germanWord": "schlafen",
-    "hungarianTranslation": "aludni"
+    "sourceWord": "schlafen",
+    "targetTranslation": "aludni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   },
   {
     "id": 10,
-    "germanWord": "lernen",
-    "hungarianTranslation": "tanulni"
+    "sourceWord": "lernen",
+    "targetTranslation": "tanulni",
+    "sourceLanguage": "German",
+    "targetLanguage": "Hungarian"
   }
 ]
