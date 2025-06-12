@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "germanWord": "machen",
+    "hungarianTranslation": "csinálni"
+  },
+  {
+    "id": 2,
+    "germanWord": "spielen",
+    "hungarianTranslation": "játszani"
+  },
+  {
+    "id": 3,
+    "germanWord": "lesen",
+    "hungarianTranslation": "olvasni"
+  },
+  {
+    "id": 4,
+    "germanWord": "schreiben",
+    "hungarianTranslation": "írni"
+  },
+  {
+    "id": 5,
+    "germanWord": "gehen",
+    "hungarianTranslation": "menni"
+  },
+  {
+    "id": 6,
+    "germanWord": "sprechen",
+    "hungarianTranslation": "beszélni"
+  },
+  {
+    "id": 7,
+    "germanWord": "essen",
+    "hungarianTranslation": "enni"
+  },
+  {
+    "id": 8,
+    "germanWord": "trinken",
+    "hungarianTranslation": "inni"
+  },
+  {
+    "id": 9,
+    "germanWord": "schlafen",
+    "hungarianTranslation": "aludni"
+  },
+  {
+    "id": 10,
+    "germanWord": "lernen",
+    "hungarianTranslation": "tanulni"
+  }
+]
