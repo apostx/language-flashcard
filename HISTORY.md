@@ -159,3 +159,39 @@ This project demonstrates how AI assistance can accelerate development while mai
 2. How AI can quickly generate boilerplate and standard implementations
 3. The value of human expertise in identifying edge cases and UX considerations
 4. The effectiveness of iterative development for complex features
+
+## Latest Requirements and Enhancements (v2.2.0)
+
+### Requirements
+- Remove all fallback data mechanisms from the application
+- Make the application fully dependent on a valid spreadsheet connection
+- Make language names and spreadsheet source configurable via URL query parameters
+- Make debug information UI switchable by URL query (default: hidden, regardless of environment)
+- Ensure all documentation and metadata reflect the new generic, configurable, and fallback-free design
+
+### Implementation
+- ✅ Removed all fallback data mechanisms from `spreadsheetService.ts`
+- ✅ Made spreadsheet ID and sheet index configurable via URL query parameters (`spreadsheetId`, `sheetId`)
+- ✅ Made debug information UI switchable via `?debug=true` URL parameter
+- ✅ Updated all documentation to reflect the generic, language-agnostic nature of the app
+- ✅ Ensured the app requires a valid spreadsheet connection and fails gracefully if not available
+
+### Challenges and Resolutions
+
+#### Version Management
+- **Challenge**: Maintaining consistency between versioning in the changelog and package.json
+- **Resolution**: Implemented simultaneous updates to ensure version numbers match across all project files
+
+#### URL Parameter Configuration
+- **Challenge**: Designing a flexible URL parameter system that provides good defaults while allowing complete customization
+- **Resolution**: Created dedicated utility functions in `urlUtils.ts` that handle parameter extraction with sensible defaults
+
+#### Debug Mode Implementation
+- **Challenge**: Making debug information available only when explicitly requested via URL
+- **Resolution**: Implemented the `getBooleanQueryParam` function to properly check for URL parameters with boolean values
+
+#### Codebase Cohesion
+- **Challenge**: Ensuring the removal of fallback mechanisms didn't break other parts of the application
+- **Resolution**: Careful review and testing of the data flow between components to maintain proper error handling
+
+This latest update completes the application's transformation into a fully generic, configurable language learning tool that can be quickly adapted to any language pair through URL parameters and properly configured spreadsheets.

@@ -5,8 +5,7 @@ const path = require('path');
 const staticFiles = [
   '.nojekyll',
   'robots.txt',
-  'favicon.ico',
-  'fallback-data.json'
+  'favicon.ico'
 ];
 
 // Ensure the dist directory exists

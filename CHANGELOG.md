@@ -6,6 +6,30 @@ All notable changes to the Language Flashcard project will be documented in this
 
 This project was developed with the assistance of Claude 3.7 (developed by Anthropic) in June 2025. For more details about the AI-assisted development process, see [HISTORY.md](./HISTORY.md).
 
+## [2.2.0] - 2025-06-13
+
+### Removed
+- Eliminated fallback data mechanism
+- Removed references to fallback data from documentation
+
+### Changed
+- Application now requires a valid spreadsheet connection
+- Error handling simplified to focus on connection issues
+
+## [2.1.0] - 2025-06-13
+
+### Added
+- URL query parameter support for configuration:
+  - `?debug=true` to toggle debug information display
+  - `?spreadsheetId=ID` to specify a custom Google Spreadsheet
+  - `?sheetId=N` to specify which sheet to use in the spreadsheet
+- Updated documentation to explain URL parameter usage
+
+### Changed
+- Made debug information hidden by default in ALL environments (not just production)
+- Debug information now only shows when explicitly enabled with `?debug=true`
+- Refactored spreadsheet service to use URL parameters with fallback values
+
 ## [2.0.0] - 2025-06-12
 
 ### Added

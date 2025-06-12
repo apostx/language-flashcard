@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { Flashcard } from '../types/Flashcard';
+import { getQueryParam } from '../utils/urlUtils';
 
-// Google Spreadsheet URL
-const SPREADSHEET_ID = '1nFxVuAugEsxKsaQWrVxkHQ5dSYgZL0jbQB57Sovsndk';
-const SHEET_ID = 0; // Assuming the data is in the first sheet
+// Default Google Spreadsheet values
+const DEFAULT_SPREADSHEET_ID = '1nFxVuAugEsxKsaQWrVxkHQ5dSYgZL0jbQB57Sovsndk';
+const DEFAULT_SHEET_ID = 0;
 
 /**
  * Data structure of the spreadsheet should be:
@@ -14,8 +15,23 @@ const SHEET_ID = 0; // Assuming the data is in the first sheet
  * Column 4: URL to target language pronunciation audio (optional)
  */
 
+// Get spreadsheet parameters from URL or use defaults
+const getSpreadsheetId = (): string => {
+  return getQueryParam('spreadsheetId', DEFAULT_SPREADSHEET_ID);
+};
+
+const getSheetId = (): number => {
+  const sheetIdParam = getQueryParam('sheetId', `${DEFAULT_SHEET_ID}`);
+  return parseInt(sheetIdParam, 10) || DEFAULT_SHEET_ID;
+};
+
 // Construct the URL for fetching the spreadsheet data as CSV
-const SPREADSHEET_URL = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/export?format=csv&gid=${SHEET_ID}`;
+const getSpreadsheetUrl = (): string => {
+  const spreadsheetId = getSpreadsheetId();
+  const sheetId = getSheetId();
+  return `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&gid=${sheetId}`;
+};
+
 // CORS Proxy URL - use this if direct access fails
 const CORS_PROXY_URL = `https://cors-anywhere.herokuapp.com/`;
 
@@ -112,7 +128,8 @@ export const fetchFlashcardData = async (): Promise<Flashcard[]> => {
     let response;
     try {
       console.log('Attempting direct fetch from Google Sheets...');
-      response = await axios.get(SPREADSHEET_URL);
+      const spreadsheetUrl = getSpreadsheetUrl();
+      response = await axios.get(spreadsheetUrl);
       console.log('Direct fetch successful!');
     } catch (corsError) {
       console.warn('Direct fetch failed:', corsError);
@@ -120,70 +137,14 @@ export const fetchFlashcardData = async (): Promise<Flashcard[]> => {
       // If direct fetch fails due to CORS, try with proxy
       try {
         console.log('Attempting fetch via CORS proxy...');
-        response = await axios.get(`${CORS_PROXY_URL}${SPREADSHEET_URL}`);
+        const spreadsheetUrl = getSpreadsheetUrl();
+        response = await axios.get(`${CORS_PROXY_URL}${spreadsheetUrl}`);
         console.log('CORS proxy fetch successful!');
       } catch (proxyError) {
         console.warn('CORS proxy fetch failed:', proxyError);
         
-        // If both methods fail, use fallback data
-        console.log('Falling back to local data...');
-        try {
-          // Try with relative path first
-          response = await axios.get('./fallback-data.json');
-          console.log('Loaded fallback data from relative path');
-        } catch (relativePathError) {
-          console.warn('Relative path fallback failed:', relativePathError);
-          
-          try {
-            // Try with absolute path based on current URL
-            const fallbackPath = `${window.location.origin}${window.location.pathname === '/' ? '' : window.location.pathname}/fallback-data.json`;
-            console.log('Attempting to load from:', fallbackPath);
-            response = await axios.get(fallbackPath);
-            console.log('Loaded fallback data from absolute path');
-          } catch (absolutePathError) {
-            console.warn('Absolute path fallback failed:', absolutePathError);
-            
-            // Hardcoded fallback as last resort
-            console.log('Using hardcoded fallback data');
-            return [
-              {
-                id: 1,
-                sourceWord: "machen",
-                targetTranslation: "csinálni",
-                sourceLanguage: "German",
-                targetLanguage: "Hungarian"
-              },
-              {
-                id: 2,
-                sourceWord: "spielen",
-                targetTranslation: "játszani",
-                sourceLanguage: "German",
-                targetLanguage: "Hungarian"
-              },
-              {
-                id: 3,
-                sourceWord: "lesen",
-                targetTranslation: "olvasni",
-                sourceLanguage: "German",
-                targetLanguage: "Hungarian"
-              },
-              {
-                id: 4,
-                sourceWord: "schreiben",
-                targetTranslation: "írni",
-                sourceLanguage: "German",
-                targetLanguage: "Hungarian"
-              },
-              {
-                id: 5,
-                sourceWord: "gehen",
-                targetTranslation: "menni",
-                sourceLanguage: "German",
-                targetLanguage: "Hungarian"
-              }
-            ];
-          }
-        }
+        // Both direct fetch and CORS proxy failed
+        throw new Error('Failed to fetch data: Both direct request and CORS proxy failed. Please check your internet connection and the spreadsheet ID.');
       }
     }
     

@@ -57,6 +57,16 @@ To use your own vocabulary list:
 2. Make the spreadsheet publicly accessible
 3. Update the application code with your spreadsheet ID
 
+Alternatively, you can use URL parameters:
+```
+https://apostx.github.io/language-flashcard/?spreadsheetId=YOUR_SPREADSHEET_ID&sheetId=0
+```
+
+## Advanced Features
+
+- **Debug Mode**: Add `?debug=true` (or simply `?debug`) to the URL to show debug information
+- **Custom Spreadsheet**: Use `?spreadsheetId=YOUR_ID&sheetId=0` to specify a different data source
+
 ## Need Help?
 
 For more detailed information, see the [README.md](./README.md) file or open an issue on GitHub.

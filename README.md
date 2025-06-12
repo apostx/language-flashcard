@@ -11,7 +11,6 @@ A responsive web application for learning vocabulary between any language pairs,
 - Shuffle mode for randomized learning
 - Language direction toggle (source→target or target→source)
 - Data sourced from a public Google Spreadsheet
-- Fallback data for offline use
 
 ## Technical Stack
 
@@ -83,7 +82,25 @@ To use your own Google Spreadsheet:
 
 1. Create a spreadsheet with the structure above
 2. Make the spreadsheet publicly accessible (File → Share → Anyone with the link → Viewer)
-3. Update the `SPREADSHEET_ID` constant in `src/services/spreadsheetService.ts` with your spreadsheet ID
+3. You can specify your spreadsheet using URL query parameters:
+   - `?spreadsheetId=YOUR_SPREADSHEET_ID` - Replace with your spreadsheet ID
+   - `?sheetId=0` - Specify which sheet to use (default is 0, the first sheet)
+   - Example: `https://apostx.github.io/language-flashcard/?spreadsheetId=1abc123&sheetId=2`
+
+### URL Parameters
+
+The application supports the following URL parameters:
+
+- `spreadsheetId` - Specify a custom Google Spreadsheet ID
+- `sheetId` - Specify which sheet to use (default is 0)
+- `debug` - Enable debug mode to see detailed information (`?debug=true` or simply `?debug`). Debug information is always hidden by default, regardless of environment.
+
+Alternatively, you can update the `DEFAULT_SPREADSHEET_ID` constant in `src/services/spreadsheetService.ts` with your spreadsheet ID.
+
+### Debug Mode
+
+You can enable debug information display by adding `?debug=true` to the URL.
+Example: `https://apostx.github.io/language-flashcard/?debug=true`
 
 ## Deployment
 

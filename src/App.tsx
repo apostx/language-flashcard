@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import FlashcardDeck from './components/FlashcardDeck';
 import { fetchFlashcardData } from './services/spreadsheetService';
 import { Flashcard } from './types/Flashcard';
+import { getBooleanQueryParam } from './utils/urlUtils';
 import './styles/App.css';
 
 const App: React.FC = () => {
@@ -9,6 +10,9 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [debugInfo, setDebugInfo] = useState<string>('');
+  
+  // Check if debug mode is enabled via URL query parameter - default is false
+  const isDebugMode = getBooleanQueryParam('debug', false);
 
   useEffect(() => {
     const loadFlashcards = async () => {
@@ -55,10 +59,12 @@ const App: React.FC = () => {
       >
         Retry
       </button>
-      <div className="debug-info">
-        <h3>Debug Information:</h3>
-        <pre>{debugInfo}</pre>
-      </div>
+      {isDebugMode && (
+        <div className="debug-info">
+          <h3>Debug Information:</h3>
+          <pre>{debugInfo}</pre>
+        </div>
+      )}
     </div>
   );
 
@@ -66,7 +72,7 @@ const App: React.FC = () => {
     <>
       <FlashcardDeck flashcards={flashcards} />
       
-      {process.env.NODE_ENV === 'development' && (
+      {isDebugMode && (
         <div className="debug-info">
           <h3>Debug Information:</h3>
           <pre>{debugInfo}</pre>
