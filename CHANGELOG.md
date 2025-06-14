@@ -4,7 +4,27 @@ All notable changes to the Language Flashcard project will be documented in this
 
 ## Project Information
 
-This project was developed with the assistance of Claude 3.7 (developed by Anthropic) in June 2025. For more details about the AI-assisted development process, see [HISTORY.md](./HISTORY.md).
+This project was developed with the assistance of Claude 3.7 (developed by Anthropic) in June 2025.
+
+## [2.3.2] - 2025-06-14
+
+### Removed
+- HISTORY.md file due to AI limitations in maintaining its own documentation structure
+- File became inconsistent and chaotic with each AI update
+- Historical development information now consolidated in this CHANGELOG.md
+
+## [2.3.1] - 2025-06-14
+
+### Fixed
+- Long text overflow issue in flashcards
+- Vertical alignment of text with audio buttons
+- Word wrapping for languages with long words
+- Improved scrolling for content that exceeds card dimensions
+
+### Changed
+- Restructured flashcard content container to better handle different text lengths
+- Modified text styling to support different writing systems
+- Enhanced responsive design for text elements
 
 ## [2.3.0] - 2025-06-14
 

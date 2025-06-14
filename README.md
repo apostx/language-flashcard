@@ -9,6 +9,8 @@ A fully responsive web application for learning vocabulary between any language 
 - Audio playback for both languages (when URLs are provided)
 - Fully responsive design for all devices (desktop, tablet, and mobile)
 - Optimized touch interactions for mobile users
+- Support for long text and different writing systems
+- Proper word wrapping and text overflow handling
 - Shuffle mode for randomized learning
 - Language direction toggle (source→target or target→source)
 - Data sourced from a public Google Spreadsheet
