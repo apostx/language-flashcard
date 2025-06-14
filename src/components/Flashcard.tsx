@@ -45,7 +45,7 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
   };
 
   const frontContent = reversed ? (
-    <>
+    <div className="flashcard-content">
       <h2>{card.targetTranslation}</h2>
       {card.targetSoundUrl && (
         <button 
@@ -57,9 +57,9 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
           🔊
         </button>
       )}
-    </>
+    </div>
   ) : (
-    <>
+    <div className="flashcard-content">
       <h2>{card.sourceWord}</h2>
       {card.sourceSoundUrl && (
         <button 
@@ -71,11 +71,11 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
           🔊
         </button>
       )}
-    </>
+    </div>
   );
 
   const backContent = reversed ? (
-    <>
+    <div className="flashcard-content">
       <h2>{card.sourceWord}</h2>
       {card.sourceSoundUrl && (
         <button 
@@ -87,9 +87,9 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
           🔊
         </button>
       )}
-    </>
+    </div>
   ) : (
-    <>
+    <div className="flashcard-content">
       <h2>{card.targetTranslation}</h2>
       {card.targetSoundUrl && (
         <button 
@@ -101,11 +101,23 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
           🔊
         </button>
       )}
-    </>
+    </div>
   );
 
   return (
-    <div className={`flashcard ${isFlipped ? 'flipped' : ''}`} onClick={handleFlip}>
+    <div 
+      className={`flashcard ${isFlipped ? 'flipped' : ''}`} 
+      onClick={handleFlip}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleFlip();
+        }
+      }}
+      aria-label="Flashcard, click to flip"
+      style={{ outline: 'none' }}
+    >
       <div className="flashcard-inner">
         <div className="flashcard-front">
           {frontContent}
@@ -118,10 +130,18 @@ const Flashcard: React.FC<FlashcardProps> = ({ card, onNext, onPrevious, reverse
       {error && <div className="error-message">{error}</div>}
       
       <div className="flashcard-navigation">
-        <button onClick={(e) => { e.stopPropagation(); onPrevious(); }} className="nav-button">
+        <button 
+          onClick={(e) => { e.stopPropagation(); onPrevious(); }} 
+          className="nav-button"
+          aria-label="Previous flashcard"
+        >
           ◀ Previous
         </button>
-        <button onClick={(e) => { e.stopPropagation(); onNext(); }} className="nav-button">
+        <button 
+          onClick={(e) => { e.stopPropagation(); onNext(); }} 
+          className="nav-button"
+          aria-label="Next flashcard"
+        >
           Next ▶
         </button>
       </div>

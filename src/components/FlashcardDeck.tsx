@@ -95,6 +95,7 @@ const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ flashcards }) => {
             onClick={toggleShuffleMode} 
             className={`control-button ${shuffleMode ? 'active' : ''}`}
             title={shuffleMode ? "Switch to ordered mode" : "Switch to shuffle mode"}
+            aria-label={shuffleMode ? "Switch to ordered mode" : "Switch to shuffle mode"}
           >
             {shuffleMode ? '🔢 Ordered' : '🔀 Shuffle'}
           </button>
@@ -103,6 +104,7 @@ const FlashcardDeck: React.FC<FlashcardDeckProps> = ({ flashcards }) => {
             onClick={toggleLanguageDirection} 
             className={`control-button ${reversed ? 'active' : ''}`}
             title={reversed ? `Show ${targetLanguage} → ${sourceLanguage}` : `Show ${sourceLanguage} → ${targetLanguage}`}
+            aria-label={reversed ? `Switch to ${sourceLanguage} first` : `Switch to ${targetLanguage} first`}
           >
             {reversed ? `🔄 ${targetLanguage} → ${sourceLanguage}` : `🔄 ${sourceLanguage} → ${targetLanguage}`}
           </button>

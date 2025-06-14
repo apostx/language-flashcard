@@ -127,20 +127,59 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .app {
-    padding: 10px;
+    padding: 15px;
   }
   
   .app-header h1 {
     font-size: 2rem;
   }
+  
+  .app-header {
+    margin-bottom: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .app {
+    padding: 10px;
+  }
+  
   .app-header h1 {
     font-size: 1.8rem;
   }
   
+  .app-subtitle {
+    font-size: 0.9rem;
+  }
+  
   .loading, .error {
     padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+  }
+  
+  .retry-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .app-footer {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .footer-note {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .app-header h1 {
+    font-size: 1.6rem;
   }
 }

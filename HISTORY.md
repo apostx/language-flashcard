@@ -2,6 +2,15 @@
 
 This document tracks the development history of the Language Flashcard application, including received instructions, implemented features, and encountered challenges. The project initially started as a German-Hungarian flashcard app but was later expanded to support any language pair.
 
+## Recent Updates
+
+### Mobile Compatibility Enhancement (v2.3.0) - June 14, 2025
+- Identified and fixed issues with mobile display compatibility
+- Improved responsive design for various screen sizes
+- Addressed specific audio button alignment problems on mobile devices
+- Enhanced keyboard navigation while maintaining clean visual design
+- Optimized flashcard layout for better mobile user experience
+
 ## AI Development Information
 
 This project was developed with the assistance of an AI assistant.

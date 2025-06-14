@@ -88,4 +88,25 @@
     padding: 0.5rem 0.8rem;
     font-size: 0.8rem;
   }
+  
+  .deck-info {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .no-cards, .error-card {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+}
+
+@media (max-width: 350px) {
+  .control-buttons {
+    gap: 0.5rem;
+  }
+  
+  .control-button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.75rem;
+  }
 }

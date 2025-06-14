@@ -1,13 +1,14 @@
 # Language Flashcard - Vocabulary Learning App
 
-A responsive web application for learning vocabulary between any language pairs, featuring audio playback for both languages.
+A fully responsive web application for learning vocabulary between any language pairs, featuring audio playback for both languages and optimized for both desktop and mobile devices.
 
 ## Features
 
 - Interactive flashcards supporting any language pair
 - Flip animation to reveal translations
 - Audio playback for both languages (when URLs are provided)
-- Responsive design for desktop and mobile browsers
+- Fully responsive design for all devices (desktop, tablet, and mobile)
+- Optimized touch interactions for mobile users
 - Shuffle mode for randomized learning
 - Language direction toggle (source→target or target→source)
 - Data sourced from a public Google Spreadsheet

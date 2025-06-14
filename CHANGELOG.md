@@ -6,6 +6,23 @@ All notable changes to the Language Flashcard project will be documented in this
 
 This project was developed with the assistance of Claude 3.7 (developed by Anthropic) in June 2025. For more details about the AI-assisted development process, see [HISTORY.md](./HISTORY.md).
 
+## [2.3.0] - 2025-06-14
+
+### Added
+- Enhanced mobile compatibility with responsive design improvements
+- Added proper audio button alignment on mobile devices
+- Improved touch interaction support
+
+### Changed
+- Redesigned the flashcard content layout with flexbox for better alignment
+- Improved focus handling for better keyboard navigation without visual artifacts
+- Optimized UI spacing and sizing for small mobile screens
+
+### Fixed
+- Misaligned sound buttons on mobile displays
+- Unwanted focus outlines on interactive elements
+- Various responsive design issues on small screens
+
 ## [2.2.0] - 2025-06-13
 
 ### Removed
